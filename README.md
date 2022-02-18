@@ -79,7 +79,7 @@ E praticar os seguintes exercícios:
 Ler os seguintes capítulos:
 
 - [11. Um breve passeio pela biblioteca padrão — parte II](https://docs.python.org/pt-br/3/tutorial/stdlib2.html)
-- [15. Aritmética de ponto flutuante: problemas e limitações](https://docs.python.org/pt-br/3/tutorial/stdlib.html)
+- [15. Aritmética de ponto flutuante: problemas e limitações](https://docs.python.org/pt-br/3/tutorial/floatingpoint.html)
 - [12. Ambientes virtuais e pacotes](https://docs.python.org/pt-br/3/tutorial/venv.html)
 - [13. E agora?](https://docs.python.org/pt-br/3/tutorial/whatnow.html)
 
