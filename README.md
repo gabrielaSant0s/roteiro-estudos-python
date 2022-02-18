@@ -1,10 +1,10 @@
 # Roteiro de estudos Python (2022)
 
-Este roteiro de estudos contem uma cronograma para usar o [O tutorial de Python](https://docs.python.org/pt-br/3/tutorial/index.html) para aprender e fortalecer os fundamentos da linguagem ao longo de 5 dias. Para cada dia há uma recomendação de capítulos para leitura e exercícios para praticar o conteúdo dos capítulos.
+Este roteiro de estudos contém um cronograma para usar o [O tutorial de Python](https://docs.python.org/pt-br/3/tutorial/index.html) para aprender e fortalecer os fundamentos da linguagem ao longo de 5 dias. Para cada dia há uma recomendação de capítulos para leitura e exercícios para praticar o conteúdo dos capítulos.
 
 ## Como usar este repositório
 
-Os exercícios recomendados estão na pasta `exercicios`, separados por dia. As pastas dos dias tem 2 ou 3 exercicios recomendados para aquele dia. Cada pasta de exercicio tem um `README.md` em inglês explicando o que deve ser implementado, um arquivo principal para escrever sua solução e um arquivo com testes, para validar a solução.
+Os exercícios recomendados estão na pasta `exercicios`, separados por dia. As pastas dos dias tem 2 ou 3 exercícios recomendados para aquele dia. Cada pasta de exercício tem um `README.md` em inglês explicando o que deve ser implementado, um arquivo principal para escrever sua solução e um arquivo com testes, para validar a solução.
 
 Para testar as soluções que você escrever,:
 
@@ -13,7 +13,7 @@ Para testar as soluções que você escrever,:
 3. Execute `poetry shell` para ativar o ambiente virtual (mais detalhes sobre isso no dia 5)
 4. Execute `pytest` para rodar os testes
 
-O comando `pytest` vai rodar os testes de todos os exercícios, para testar apenas um deles (o que você estiver implementado, por exemplo) especifique o caminho da pasta com o exercício. 
+O comando `pytest` vai rodar os testes de todos os exercícios, para testar apenas um deles (o que você estiver implementado, por exemplo) especifique o caminho da pasta com o exercício.
 
 O comando abaixo valida a solução do _Ghost Gobble Arcade Game_, que é um exercício do dia 1:
 ```
