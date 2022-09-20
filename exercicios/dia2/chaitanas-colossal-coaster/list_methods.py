@@ -1,3 +1,5 @@
+from collections import deque
+
 def add_me_to_the_queue(express_queue, normal_queue, ticket_type, person_name):
     """
     :param express_queue: list - names in the Fast-track queue.
@@ -6,8 +8,16 @@ def add_me_to_the_queue(express_queue, normal_queue, ticket_type, person_name):
     :param person_name: str - name of person to add to a queue.
     :return: list - the (updated) queue the name was added to.
     """
-    pass
+    express = deque(express_queue)
+    normal = deque(normal_queue)
 
+    if (ticket_type == 0):
+        normal.append(person_name)
+        return list(normal)
+    elif (ticket_type == 1):
+        express.append(person_name)
+        return list(express)
+        
 
 def find_my_friend(queue, friend_name):
     """
@@ -15,8 +25,10 @@ def find_my_friend(queue, friend_name):
     :param friend_name: str - name of friend to find.
     :return: int - index at which the friends name was found.
     """
-    pass
+    
+    index_friend = queue.index(friend_name)
 
+    return index_friend
 
 def add_me_with_my_friends(queue, index, person_name):
     """
@@ -25,7 +37,11 @@ def add_me_with_my_friends(queue, index, person_name):
     :param person_name: str - the name to add.
     :return: list - queue updated with new name.
     """
-    pass
+    
+    new_queue = deque(queue)
+    new_queue.insert(index, person_name)
+
+    return list(new_queue)
 
 
 def remove_the_mean_person(queue, person_name):
@@ -34,8 +50,11 @@ def remove_the_mean_person(queue, person_name):
     :param person_name: str - name of mean person.
     :return:  list - queue update with the mean persons name removed.
     """
-    pass
+    
+    new_queue = deque(queue)
+    new_queue.remove(person_name)
 
+    return list(new_queue)
 
 def how_many_namefellows(queue, person_name):
     """
@@ -43,20 +62,28 @@ def how_many_namefellows(queue, person_name):
     :param person_name: str - name you wish to count or track.
     :return:  int - the number of times the name appears in the queue.
     """
-    pass
+    count_names_queue = deque(queue).count(person_name)
 
+    return count_names_queue
 
 def remove_the_last_person(queue):
     """
     :param queue: list - names in the queue.
     :return: str - name that has been removed from the end of the queue.
     """
-    pass
-
+    person_excluded = queue[-1] 
+    queue.pop()
+    
+    return person_excluded
 
 def sorted_names(queue):
     """
     :param queue: list - names in the queue.
     :return: list - copy of the queue in alphabetical order.
     """
-    pass
+    sorted_queue = sorted(queue)
+    
+    return sorted_queue
+
+
+    
