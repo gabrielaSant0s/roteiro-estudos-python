@@ -59,4 +59,4 @@ def adjective_to_verb(sentence, index):
 
     return new_word
 
-print(adjective_to_verb('It got dark as the sun set.', 2))
+
