@@ -31,17 +31,12 @@ def check_drinks(drink_name, drink_ingredients):
     The function should return the name of the drink followed by "Mocktail" if the drink has
     no alcoholic ingredients, and drink name followed by "Cocktail" if the drink includes alcohol.
     """
-    count_alcohols_ingredients = 0 
     for ingredient in drink_ingredients:
         if ingredient in ALCOHOLS:
-            count_alcohols_ingredients += 1
+            return f'{drink_name} Cocktail'
+        
+    return f'{drink_name} Mocktail'
     
-    if count_alcohols_ingredients > 0:
-        return f'{drink_name} Cocktail'
-    else:
-        return f'{drink_name} Mocktail'
-    
-
 def categorize_dish(dish_name, dish_ingredients):
     """
     :param dish_name: str
@@ -90,13 +85,14 @@ def tag_special_ingredients(dish):
     """
 
     special_ingredients = []
-    for item in dish[1]:
+    name, ingredients = dish
+    for item in ingredients:
         if item in SPECIAL_INGREDIENTS:
             special_ingredients.append(item)
     
     set_special_ingredients = set(special_ingredients)
 
-    return (dish[0], set_special_ingredients)
+    return (name, set_special_ingredients)
 
 def compile_ingredients(dishes):
     """
@@ -104,14 +100,12 @@ def compile_ingredients(dishes):
     :return: set
     This function should return a `set` of all ingredients from all listed dishes.
     """
-    ingredients = []
-    for cont in range(len(dishes)):
-        for item in dishes[cont]:
-            ingredients.append(item)
+    ingredients = set()
+    
+    for dish in dishes:
+       ingredients = ingredients.union(dish)
 
-    set_ingredients = set(ingredients)
-
-    return set_ingredients 
+    return ingredients 
     
 def separate_appetizers(dishes, appetizers):
     """
@@ -124,14 +118,7 @@ def separate_appetizers(dishes, appetizers):
     set_dishes = set(dishes)
     set_appetizers = set(appetizers)
 
-    dishes = list(set_dishes)
-
-    for item in set_appetizers:
-        if item in dishes:
-            index_item_dishes = dishes.index(item)
-            dishes.pop(index_item_dishes)          
-    
-    return dishes
+    return set_dishes - set_appetizers
 
 def singleton_ingredients(dishes, intersection):
     """
@@ -143,32 +130,10 @@ def singleton_ingredients(dishes, intersection):
     Each `<CATEGORY>_INTERSECTION` is an `intersection` of all dishes in the category.
     The function should return a `set` of ingredients that only appear in a single dish.
     """
-    list_aux_dishes = []
-    list_aux_intersection = []
-    singleton = []
+    singleton = set()
 
-    for element in dishes:
-        for item in element:
-            list_aux_dishes.append(item)
-    
-    for element in intersection:
-        for item in element:
-            list_aux_intersection.append(item)
-
-    for item in list_aux_dishes:
-        if list_aux_dishes.count(item) == 1:
-            singleton.append(item)
-    
-    for item in list_aux_intersection:
-        if item in singleton:
-            index = singleton.index(item)
-            del singleton[index]
+    for dish in dishes:
+        set_aux_dishes = dish - intersection
+        singleton = singleton.union(set_aux_dishes)
 
     return singleton
-
-
-dishestest = [{'water', 'oil'}, {'water', 'sugar', 'butter'}, {'sugar', 'tomato', 'avocado'}]
-intersectiontestone = {'sugar', 'avocado'}
-intersectiontesttwo = {'butter'}
-# print(singleton_ingredients(dishestest, (intersectiontestone,intersectiontesttwo)))
-print(singleton_ingredients(example_dishes, EXAMPLE_INTERSECTION))
