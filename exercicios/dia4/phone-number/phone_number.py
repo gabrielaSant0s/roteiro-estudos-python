@@ -21,7 +21,6 @@ class PhoneNumber:
             self.phone = self.phone.replace('1', '')
         return self.phone
 
-
     @property
     def area_code(self):
         self.clean_number_phone()
@@ -38,7 +37,6 @@ class PhoneNumber:
         return self.phone
 
     def clean_err(self):
-
         self.clean_number_phone()
 
         first_number_code_area = self.phone[0]
@@ -77,15 +75,4 @@ class PhoneNumber:
             elif first_exchange_code == '1':
                 raise ValueError("exchange code cannot start with one")
         
-    
-
-    
-
-
-phone = PhoneNumber('12345678912')
-# print(phone.number)
-print(phone.pretty())
-# print(phone.area_code)
-# print(phone)
-# print(dir(PhoneNumber))
 
