@@ -1,6 +1,3 @@
-from re import T
-
-
 class BankAccount:
     def __init__(self):
         self._balance = 0   
@@ -27,7 +24,6 @@ class BankAccount:
         else:
             raise ValueError("account not open")
         
-
     def withdraw(self, amount):     
         if self.is_open:
             self.negative_values(amount)
@@ -50,16 +46,5 @@ class BankAccount:
         if amount < 0:
             raise ValueError("amount must be greater than 0")
     
-# conta = BankAccount()
-# # # print(conta)
-# print(conta.open())
-# print(conta.deposit(10))
-
-# print(conta.close())
-# # # print(conta.withdraw(5))
-# print(conta.open())
-# print(conta.get_balance())
-
-# print(conta)
 
 
