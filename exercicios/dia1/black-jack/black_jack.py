@@ -62,21 +62,7 @@ def is_blackjack(card_one, card_two):
     card_one_numeric = value_of_card(card_one)
     card_two_numeric = value_of_card(card_two)
 
-    if ( card_one == 'A'):
-        if ( card_two_numeric == 10 ):
-            return True
-        else:
-            return False
-    elif ( card_one_numeric == 10 ):
-        if ( card_two == 'A'):
-            return True
-        else:
-            return False
-    else:
-        return False
-
-
-
+    return (( card_one == 'A') and ( card_two_numeric == 10 )) or (( card_one_numeric == 10 ) and ( card_two == 'A'))
 
 def can_split_pairs(card_one, card_two):
     """Determine if a player can split their hand into two hands.
@@ -86,24 +72,17 @@ def can_split_pairs(card_one, card_two):
     card_one_numeric = value_of_card(card_one)
     card_two_numeric = value_of_card(card_two)
 
-    if (card_one_numeric == card_two_numeric):
-        return True
-    else:
-        return False
-
+    return card_one_numeric == card_two_numeric
 
 def can_double_down(card_one, card_two):
     """Determine if a blackjack player can place a double down bet.
     :param card_one, card_two: str - first and second cards in hand.
     :return: bool - if the hand can be doubled down (i.e. totals 9, 10 or 11 points).
     """
-
     card_one_numeric = value_of_card(card_one)
     card_two_numeric = value_of_card(card_two)
 
     sum_cards = card_one_numeric + card_two_numeric
 
-    if ( sum_cards == 9 ) or ( sum_cards == 10 ) or ( sum_cards == 11 ):
-        return True
-    else:
-        return False
+    return ( sum_cards == 9 ) or ( sum_cards == 10 ) or ( sum_cards == 11 )
+    
